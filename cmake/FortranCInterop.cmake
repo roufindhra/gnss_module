@@ -2,6 +2,7 @@
 # wajib memakai bind(C) + ISO_C_BINDING, sehingga tidak perlu deteksi
 # name-mangling otomatis (module FortranCInterface hanya dibutuhkan untuk
 # kode Fortran lama tanpa bind(C)).
+# Rincian konvensi (tipe, layout array, alokasi memori): docs/bindings.md
 #
 # Modul ini memastikan kompatibilitas toolchain campuran:
 #   - GCC:     g++ + gfortran (kombinasi aman, default di Arch Linux)
