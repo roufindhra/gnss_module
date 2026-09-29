@@ -1,0 +1,28 @@
+     3.02           OBSERVATION DATA    M: Mixed            RINEX VERSION / TYPE
+CHC                 CHC                 20230704 075606 UTC PGM / RUN BY / DATE 
+KM 00                                                       MARKER NAME         
+KM 00                                                       MARKER NUMBER       
+CHC                 CHC                                     OBSERVER / AGENCY   
+3508401             CHC I50             1.2.1               REC # / TYPE / VERS 
+3508401             CHCI50                                  ANT # / TYPE        
+ -2199103.2300  5925280.4641  -856060.4175                  APPROX POSITION XYZ 
+        1.2337        0.0000        0.0000                  ANTENNA: DELTA H/E/N
+HUACE ANT PHASECENTER                                       COMMENT             
+G   24 C1C L1C D1C S1C C2P L2P D2P S2P C2D L2D D2D S2D C2X  SYS / # / OBS TYPES 
+       L2X D2X S2X C5I L5I D5I S5I C5Q L5Q D5Q S5Q          SYS / # / OBS TYPES 
+R   12 C1C L1C D1C S1C C2C L2C D2C S2C C2P L2P D2P S2P      SYS / # / OBS TYPES 
+E   12 C1X L1X D1X S1X C5X L5X D5X S5X C7X L7X D7X S7X      SYS / # / OBS TYPES 
+C   24 C1I L1I D1I S1I C1Q L1Q D1Q S1Q C7I L7I D7I S7I C7Q  SYS / # / OBS TYPES 
+       L7Q D7Q S7Q C6I L6I D6I S6I C6Q L6Q D6Q S6Q          SYS / # / OBS TYPES 
+    30.000                                                  INTERVAL            
+  2023     7     4     7    57    0.0000000     GPS         TIME OF FIRST OBS   
+G                                                           SYS / PHASE SHIFT   
+R                                                           SYS / PHASE SHIFT   
+E                                                           SYS / PHASE SHIFT   
+C                                                           SYS / PHASE SHIFT   
+ C1C    0.000 C1P    0.000 C2C    0.000 C2P    0.000        GLONASS COD/PHS/BIS 
+                                                            END OF HEADER       
+> 2023  7  4  7 57  0.0000000  0 40
+G05  24696854.312   129782847.071        -578.210          36.250           0.000           0.000           0.000           0.000    24696853.110   101129484.020        -450.395          27.750           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000  
+G06  24118971.867   126746055.104       -1149.990          38.250           0.000           0.000           0.000           0.000    24118978.959    98763204.097        -896.128          40.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000    24118983.555    94648074.831        -858.831          42.500  
+G11  22465039.043   118054571.689         706.339          44.750           0.000           0.000           0.000           0.000    22465046.963    91990608.480         550.387          41.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000           0.000    22465050.160    88157683.737         527.463          51.250  

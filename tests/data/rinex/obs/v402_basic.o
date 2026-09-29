@@ -1,0 +1,16 @@
+    4.02            OBSERVATION DATA    M                   RINEX VERSION / TYPE
+TEST                TEST                20240128 000000 UTC PGM / RUN BY / DATE
+TEST SITE                                                   MARKER NAME
+G   14 C1C L1C D1C S1C C2W L2W D2W S2W C5Q L5Q D5Q S5Q      SYS / # / OBS TYPES
+       C1W L1W                                              SYS / # / OBS TYPES
+R    4 C1C L1C D1C S1C                                      SYS / # / OBS TYPES
+dBHZ                                                        SIGNAL STRENGTH UNIT
+     30.000                                                 INTERVAL
+    18                                                      LEAP SECONDS
+                                                            END OF HEADER
+> 2024 01 28 00 00  0.0000000  0  2     -0.123456789012
+G05  24696854.312   129782847.07119      -578.210          36.250  
+G05  24696999.999   129784455.555        -578.100          37.500  
+G05  24697000.001   129784500.000        -578.050          38.000 5
+G05                   1000000.500  
+R01  20123456.789 7 108234567.890       -1234.567          45.000  

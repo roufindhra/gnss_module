@@ -1,0 +1,9 @@
+    2.11            OBSERVATION DATA    M                   RINEX VERSION / TYPE
+TEST                CHC                 20260101 000000 UTC PGM / RUN BY / DATE
+TEST SITE                                                   MARKER NAME
+-1234567.8901  4987654.3210  1234567.8901                   APPROX POSITION XYZ
+     15.000                                                 INTERVAL
+    12    C1    L1    L2    P1    P2    C5    L5    D1    S1# / TYPES OF OBSERV
+          D2    S2    C2                                    # / TYPES OF OBSERV
+    16                                                      LEAP SECONDS
+                                                            END OF HEADER
