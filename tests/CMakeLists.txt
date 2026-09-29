@@ -6,6 +6,16 @@ add_executable(test_mat unit/test_mat.cpp)
 target_link_libraries(test_mat PRIVATE gnss_bindings gnss_core)
 add_test(NAME mat COMMAND test_mat)
 
+find_package(LAPACK QUIET)
+add_executable(test_linalg unit/test_linalg.cpp)
+target_link_libraries(test_linalg PRIVATE gnss_bindings gnss_core)
+if(LAPACK_FOUND)
+  target_compile_definitions(test_linalg PRIVATE HAVE_LAPACK)
+  target_link_libraries(test_linalg PRIVATE ${LAPACK_LIBRARIES})
+endif()
+add_test(NAME linalg COMMAND test_linalg
+         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
 add_executable(test_line_reader unit/test_line_reader.cpp)
 target_link_libraries(test_line_reader PRIVATE gnss_io)
 add_test(NAME line_reader COMMAND test_line_reader

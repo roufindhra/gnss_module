@@ -53,6 +53,42 @@ Fungsi binding mengembalikan `integer(c_int)` status: `0` = sukses, nilai lain =
 kode error modul (di-dokumentasikan per fungsi). Subroutine tanpa kemungkinan
 gagal (mis. `gnsst_mat_mul`) boleh `void`.
 
+## Modul linalg (`src/core/linalg/`)
+
+Deklarasi C++ di `src/bindings/gnss_linalg.h`; konvensi di atas berlaku penuh.
+
+### Keputusan: from-scratch vs LAPACK
+
+Operasi (Cholesky, triangular inverse, normal equation, IRLS) **ditulis sendiri**
+di Fortran — from-scratch, edukatif, nol dependensi runtime. LAPACK tidak dipakai
+di inti. Trade-off:
+
+- *Ditulis sendiri*: kontrol penuh atas algoritma (bagian pembelajaran utama
+  proyek ini), tanpa dependensi; risiko bug numerik ditanggung sendiri.
+- *LAPACK*: teruji luas dan lebih cepat (BLAS backend), tetapi menambah
+  dependensi sistem dan menghilangkan nilai edukasi inti.
+- **Kompromi yang dipilih**: unit test (`test_linalg`) memverifikasi silang
+  Cholesky terhadap `dpotrf` LAPACK bila ditemukan saat konfigurasi CMake
+  (`find_package(LAPACK)` → `HAVE_LAPACK`); tanpa LAPACK test tetap jalan
+  dengan kasus analitik. LAPACK hanya di-link pada test target, bukan `gnss_core`.
+
+### Solver least squares
+
+Normal equation `N = AᵀWA` + Cholesky `LLᵀ` (standar penyesuaian geodetik;
+Teunissen *Adjustment Theory*). Matriks bobot P = **diagonal** (vektor `w(n)`)
+— cukup untuk GNSS dan IRLS; matriks P penuh tidak didukung. Kofaktor
+`Q = N⁻¹ = L⁻ᵀL⁻¹` via `gnsst_tri_inv`; perhatikan `tri_inv` bersifat in-place
+dan **mengkorupsi segitiga atas** — jangan membaca bagian atas setelah panggilan.
+
+### IRLS IGG-III (`gnsst_irls_igg3`)
+
+Penimbangan ulang iteratif untuk robust estimation (siap dipakai modul QC).
+Standardisasi residual memakai **skala robust MAD** (`σ = 1.4826·median|v|`),
+bukan σ̂₀ a posteriori yang terkontaminasi outlier itu sendiri; bobot dasar
+`w(l)` yang dipakai untuk standardisasi (bukan bobot iterasi) supaya
+observasi tertolak tetap tertolak. Konvergensi: `max|Δx| < tol` dan bobot stabil.
+Kode status: `0` sukses; `1` derajat bebas ≤ 0; `10+k` Cholesky gagal iterasi k.
+
 ## Contoh call site C++
 
 ```cpp
